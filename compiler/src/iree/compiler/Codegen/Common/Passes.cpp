@@ -8,8 +8,16 @@
 #include "iree/compiler/Codegen/Common/PassUtils.h"
 #include "mlir/Dialect/Func/IR/FuncOps.h"
 #include "mlir/Pass/PassManager.h"
+// #include "iree/compiler/Codegen/Common/ReplaceMatMulPass.cpp"  // direct include works for local pass
+#include "iree/compiler/Codegen/Common/ReplaceMatMulPass.h"
+
 
 namespace mlir::iree_compiler {
+
+std::unique_ptr<mlir::Pass> createReplaceMatMulPass(){
+  // return std::make_unique<ReplaceMatMulPass>();
+  return createReplaceMatmulPass();
+}
 
 void addCommonTargetExecutablePreprocessingPasses(
     FunctionLikeNest &funcPassManager, bool useDecomposeSoftmaxFusion) {

@@ -65,6 +65,8 @@ FailureOr<transform::NamedSequenceOp> linkTuningSpecs(ModuleOp module);
 // Wrappers that not use tablegen options. See Passes.td for details.
 //------------------------------------------------------------------------------
 
+std::unique_ptr<mlir::Pass> createReplaceMatmulPass();
+
 std::unique_ptr<InterfacePass<FunctionOpInterface>>
 createConvertToDestinationPassingStylePass(
     bool useWARForCooperativeMatrixCodegen);

@@ -7,7 +7,9 @@
 // Main entry function for iree-opt and derived binaries.
 //
 // Based on mlir-opt but registers the passes and dialects we care about.
-
+#include <iostream>
 #include "iree/compiler/tool_entry_points_api.h"
 
-int main(int argc, char **argv) { return ireeOptRunMain(argc, argv); }
+int main(int argc, char **argv) { 
+    std::cout << "Simple debug point\n";
+    return ireeOptRunMain(argc, argv); }
